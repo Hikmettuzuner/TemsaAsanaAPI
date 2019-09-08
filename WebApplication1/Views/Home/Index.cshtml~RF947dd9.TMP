@@ -1,0 +1,196 @@
+﻿@{
+    /**/
+    ViewBag.Title = "Home Page";
+}
+<div class="row">
+    <div class="container">
+        <h2></h2>
+        <p></p>
+        <form id="form">
+            <div class="form-group">
+                <label class="text-danger font-weight-bold">WorkSpace ID</label>
+                <input disabled="disabled" type="text" border="2" class="form-control shadow p-3 -white rounded" id="demo">
+            </div>
+            <div class="form-group">
+                <label class="text-danger font-weight-bold">Takım Adı</label>
+                <input disabled="disabled" type="text" class="form-control shadow p-3 -white rounded" id="as">
+            </div>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="card text-white bg-dark mb-3 border-info">
+            <div class="card-body">
+                <form id="form">
+                    <div class="form-group">
+                        <label class="text-white font-weight-bold">Proje Adı</label>
+                        <input type="text" id="projectname" class="form-control shadow p-3">
+                    </div>
+                    <div class="form-group">
+                        <label class="text-white font-weight-bold">Proje Açıklaması </label>
+                        <input type="text" id="projectmission" class="form-control shadow p-3">
+                    </div>
+                    <button type="button" id="btn" class="btn btn-primary">Gönder</button>
+                    <button type="button" id="listele_btn" onclick="myProjectFunction()" class="btn btn-warning">Listele</button>
+                    <button type="button" onclick="location.reload()" class="btn btn-danger">Listeyi Kapat</button>
+
+                </form>
+            </div>
+        </div>
+
+        <div class="card border-info mt-3">
+            <div class="card-header text-info font-weight-bold">| Asana Proje Listesi |</div>
+            <div class="list-group">
+                <ol id="list_project" class="text-info font-weight-bold mt-2 bg-dark">
+                    Listelenecek Veriler
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card text-white bg-dark mb-3 border-info">
+            <div class="card-body">
+                <form id="form2">
+                    <div class="form-group">
+                        <label class="text-white font-weight-bold">Projeler</label>
+                        <select id="selectprojecttask" class="form-control  font-weight-bold"></select>
+                    </div>
+                    <div class="form-group">
+                        <label class="text-dark font-weight-bold">.....</label>
+                        <input disabled="disabled" type="text" border="2" class="form-control shadow p-3 -white rounded font-weight-bold" placeholder="Yukarıda Listelemek İstediğiniz Projeyi Seçiniz">
+                    </div>
+                    <button type="button" id="listele_task_btn" onclick="myTasktFunction()" class="btn btn-warning">Görevleri Listele</button>
+                    <button type="button" onclick="location.reload()" class="btn btn-danger">Listeyi Kapat</button>
+                </form>
+            </div>
+        </div>
+        <div class="card border-info mt-3">
+            <div class="card-header text-info font-weight-bold">| Asana Görev Listesi |</div>
+            <div class="list-group">
+                <ol id="list_gorev" class="text-info font-weight-bold mt-2 bg-dark">
+                    Listelenecek Veriler
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="accordion mt-3" id="accordionExample">
+    <div class="card border-info">
+        <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+                <img src="~/thema/css/project.png" alt="Snow" style="width:3%">
+                <button class="btn btn-link font-weight-bold text-info" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    | Proje - Görev Formu |
+                </button>
+                <img src="~/thema/css/task.png" alt="Snow" style="width:3%">
+
+            </h5>
+        </div>
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="row">
+                <div class="col mt-3">
+                    <div class="card font-weight-bold text-info  bg-dark ">
+                        <div class="card-body">
+                            <div class="col col-md-12">
+                                <form id="formmm">
+                                    <div class="form-group  ">
+                                        <label class="text-info font-weight-bold">| Projeler |</label>
+                                        <select id="selectproject" class="form-control text-info font-weight-bold"></select>
+                                    </div>
+                                    <div class="form-group">
+
+                                        <label class="text-info font-weight-bold">Görev Adı</label>
+                                        <input type="text" border="2" class="form-control text-info font-weight-bold" placeholder="Lütfen Proje Tanımını Giriniz" id="tasklistname">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="text-info font-weight-bold">Görev Tanımı</label>
+                                        <input type="text" class="form-control text-info font-weight-bold" placeholder="Lütfen Görev Tanımını Giriniz" id="tasklistdesc">
+                                    </div>
+                                    <button type="button" id="formgonder" class="btn btn-primary text-white">Gönder</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!--Accordion wrapper-->
+<div class="accordion md-accordion accordion-1 mt-3" id="accordionEx23" role="tablist">
+    <div class="card border-info">
+        <div class="card-header blue lighten-3 z-depth-1" role="tab" id="heading96">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2 class="mb-0 py-1">
+                        <img src="~/thema/css/taskform.png" alt="Snow" style="width:5%">
+                        <button class="btn btn-link font-weight-bold text-info" type="button" data-toggle="collapse" data-target="#collapse96" aria-expanded="true" aria-controls="collapse96">
+                            | Görev - Personel Formu |
+                        </button>
+                        <img src="~/thema/css/personel.png" alt="Snow" style="width:7%">
+                    </h2>
+                </div>
+                <div class="col-md-6">
+                    <h2 class="mb-0 py-1">
+                        <img src="~/thema/css/mission.png" alt="Snow" style="width:5%">
+                        <button class="btn btn-link font-weight-bold text-info" type="button" data-toggle="collapse" data-target="#collapse96" aria-expanded="true" aria-controls="collapse96">
+                            | Görev - Bitirme Formu |
+                        </button>
+                        <img src="~/thema/css/finish.png" alt="Snow" style="width:7%">
+                    </h2>
+                </div>
+            </div>
+            </div>
+            <div id="collapse96" class="collapse show" role="tabpanel" aria-labelledby="heading96" data-parent="#accordionEx23">
+                <div class="card-body">
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <div class="card text-info bg-dark mb-3 border-info">
+                                <div class="card-body">
+                                    <form id="form">
+                                        <div class="form-group">
+                                            <label class="text-info font-weight-bold">| Projeler |</label>
+                                            <select id="selectprojecttask" class="form-control  font-weight-bold"></select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="text-info font-weight-bold">| Görevler |</label>
+                                            <select id="selectprojecttask" class="form-control  font-weight-bold"></select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="text-info font-weight-bold">| Kişiler |</label>
+                                            <select id="selectprojecttask" class="form-control  font-weight-bold"></select>
+                                        </div>
+                                        <button type="button" id="btn" class="btn btn-primary">Göreve Personel Ver</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card text-white bg-dark mb-3 border-info">
+                                <div class="card-body">
+                                    <form id="form2">
+                                        <div class="form-group">
+                                            <label class="text-info font-weight-bold">| Projeler |</label>
+                                            <select id="selectprojecttask" class="form-control  font-weight-bold"></select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="text-info font-weight-bold">|Görevler</label>
+                                            <select id="selectprojecttask" class="form-control  font-weight-bold"></select>
+                                        </div>
+                                        <button type="button" id="btn" class="btn btn-primary">Görevi Tamamla</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+<!--Accordion wrapper-->

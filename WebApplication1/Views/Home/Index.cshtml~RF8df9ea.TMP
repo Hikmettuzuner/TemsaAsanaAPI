@@ -1,0 +1,109 @@
+﻿@{
+    /**/
+    ViewBag.Title = "Home Page";
+}
+<div class="row">
+    <div class="container">
+        <h2></h2>
+        <p></p>
+        <form id="form">
+            <div class="form-group">
+                <label class="text-danger font-weight-bold">WorkSpace ID</label>
+                <input disabled="disabled" type="text" border="2" class="form-control" id="demo">
+            </div>
+            <div class="form-group">
+                <label class="text-danger font-weight-bold">Takım Adı</label>
+                <input disabled="disabled" type="text" class="form-control" id="as">
+            </div>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="card text-white bg-warning mb-3 border-info">
+            <div class="card-body">
+                <form id="form">
+                    <div class="form-group">
+                        <label class="text-white font-weight-bold">Proje Adını Giriniz</label>
+                        <input type="text" id="projectname" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="text-white font-weight-bold">Proje Tanımını Giriniz</label>
+                        <input type="text" id="projectmission" class="form-control">
+                    </div>
+                    <button type="button" id="btn" class="btn btn-primary">Gönder</button>
+                    <button type="button" id="listele_btn" onclick="myProjectFunction()" class="btn btn-success">Listele</button>
+                    <button type="button" id="kapat_btn" class="btn btn-danger">Listeyi Kapat</button>
+                </form>
+            </div>
+        </div>
+        <div class="card border-info mt-3">
+            <div class="card-header text-info font-weight-bold" ">| Asana Proje Listesi |</div>
+            <div class="list-group">
+                <ol id="list_project" class="text-info font-weight-bold mt-2">
+                    Listelenecek Veriler
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card text-white bg-warning mb-3 border-info">
+            <div class="card-body">
+                <form id="form2">
+                    <div class="form-group">
+                        <label class="text-white font-weight-bold">Görev Adını Giriniz</label>
+                        <input type="text" id="taskname" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="text-white font-weight-bold">Görev Tanımını Giriniz</label>
+                        <input type="text" id="taskmission" class="form-control">
+                    </div>
+                    <button type="button" id="olustur_btn" onkeypress="Harf(event)" class="btn btn-primary">Gönder</button>
+                    <button type="button" id="listele_task_btn" onclick="myTasktFunction()" class="btn btn-success">Listele</button>
+                </form>
+            </div>
+        </div>
+        <div class="card border-info mt-3">
+            <div class="card-header text-info font-weight-bold">| Asana Görev Listesi |</div>
+            <div class="list-group">
+                <ol id="list_gorev" class="text-info font-weight-bold mt-2">
+                    Listelenecek Veriler
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col mt-3">
+        <div class="card  border-info text-white bg-light">
+            <div class="card-header text-danger font-weight-bold">| Proje - Görev Eşleme |</div>
+            <div class="card-body">
+                <div class="col col-md-12">
+                    <form id="form">
+                        <div class="form-group">
+                            <label class="text-danger font-weight-bold">| Projeler |</label>
+                            <select class="form-control bg-warning font-weight-bold">
+                                <option class="bg-warning">Lütfen Projenizi Seçiniz...</option>
+                                <option class="bg-warning">A</option>
+                                <option class="bg-warning">B</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="text-danger font-weight-bold">| Görevler |</label>
+                            <select class="form-control bg-warning font-weight-bold">
+                                <option class="bg-warning">Lütfen Görevinizi Seçiniz...</option>
+                                <option class="bg-warning">A</option>
+                                <option class="bg-warning">B</option>
+                            </select>
+                        </div>
+                        <button type="button" class="btn btn-warning text-white font-weight-bold">Gönder</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

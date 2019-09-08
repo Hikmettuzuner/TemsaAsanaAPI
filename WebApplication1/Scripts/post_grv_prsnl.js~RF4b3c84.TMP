@@ -1,0 +1,126 @@
+﻿$(document).ready(function () {
+    $("#grv_proje").html('<option value="">İlk Olarak Projenizi Seçiniz</option>');
+    $("#grv_task").html('<option value="">İlk Olarak Projenizi Seçiniz</option>');
+
+    var okunann;
+    var okunanidd;
+
+    var settings = {
+        "url": "https://app.asana.com/api/1.0/projects?opt_fields=created_at,modified_at,owner,due_date,current_status,public,name,notes,archived,workspace,color,members,followers",
+        "method": "GET",
+        "timeout": 0,
+        "headers": {
+            "Authorization": "Bearer 0/5596c0fc9f23c5b96114af7191af6e57"
+        },
+    };
+    $.ajax(settings).done(function (response) {
+        for (var i = 0; i < response.data.length; i++) {
+            $("#grv_proje").
+                append($("<option value='" + response.data[i].id + "'>" + response.data[i].name + "</option>"));
+        }
+        okunann = document.getElementById("grv_proje");
+        okunann.addEventListener('change', function () {
+
+            $("#grv_task").empty();
+            okunanidd = okunann.options[okunann.selectedIndex].value;
+            if (okunanidd == "") {
+                $("#grv_task").html('<option value="-1">Görev Bulunmamaktadır</option>');
+                swal("Oops", "Görev Yok! Lütfen Görev Giriniz", "error")
+            }
+            else {
+                var settings_test = {
+                    "url": "https://app.asana.com/api/1.0/projects/" + okunanidd + "/tasks?opt_fields=id,created_at,modified_at,name,notes,assignee,completed,assignee_status,completed_at,due_on,due_at,projects,memberships,tags,workspace,num_hearts,parent,hearts,followers,hearted&completed_since=2016-10-07T22:54:00.867Z",
+                    "method": "GET",
+                    "timeout": 0,
+                    "headers": {
+                        "Authorization": "Bearer 0/5596c0fc9f23c5b96114af7191af6e57"
+                    },
+                };
+                $.ajax(settings_test).done(function (response) {
+                    console.log("sss");
+                    if (response.data.length == 0) {
+                        $("#grv_task").html('<option value="-1">Görev Bulunmamaktadır</option>');
+                        swal("Oops", "Görev Yok! Lütfen Görev Giriniz", "error")
+
+                    }
+                    console.log(response.data.length);
+                    for (var i = 0; i < response.data.length; i++) {
+
+                        $("#grv_task").append($("<option value='" + response.data[i].id + "'>" + response.data[i].name + "</option>"));
+                    }
+
+                    task_forper = document.getElementById("grv_task");
+                    task_forper.addEventListener('change', function () {
+                        taskid_for = task_forper.options[task_forper.selectedIndex].value;
+                    })
+                    return 0;
+
+                })
+
+            }
+
+        })
+
+    });
+
+    var settings_task_person = {
+        "url": "https://app.asana.com/api/1.0/workspaces/1108392209054696/users",
+        "method": "GET",
+        "timeout": 0,
+        "headers": {
+            "Authorization": "Bearer 0/5596c0fc9f23c5b96114af7191af6e57"
+        },
+    };
+    $.ajax(settings_task_person).done(function (response) {
+        for (var i = 0; i < response.data.length; i++) {
+            $("#grv_person").
+                append($("<option value='" + response.data[i].id + "'>" + response.data[i].name + "</option>"));
+        }
+        perso_fortask = document.getElementById("grv_person");
+        perso_fortask.addEventListener('change', function () {
+            persoName_fortask = perso_fortask.options[perso_fortask.selectedIndex].text;
+            //console.log(persoName_fortask);
+        })
+    });
+
+    $("#project_task_per").click(function () {
+        task_forper = document.getElementById("grv_task");
+        a = task_forper.options[task_forper.selectedIndex].value;
+        perso_fortask = document.getElementById("grv_person");
+        b = perso_fortask.options[perso_fortask.selectedIndex].text;
+        if (a == '') {
+            swal({
+                title: "Oops", text: "Lütfen Görev Seçiniz!", type:
+                    "error"
+            }).then(function () {
+                location.reload();
+            }
+            );
+        } else {
+            var settings = {
+                "url": "https://app.asana.com/api/1.0/tasks/" + a + "/addFollowers",
+                "method": "POST",
+                "timeout": 0,
+                "headers": {
+                    "Authorization": "Bearer 0/5596c0fc9f23c5b96114af7191af6e57"
+                },
+                "data": {
+                    "followers": b
+                }
+            };
+
+            $.ajax(settings).done(function (response) {
+                console.log(response);
+                swal({
+                    title: "Tebrikler", text: "Kayıt Başarılı", type:
+                        "success"
+                }).then(function () {
+                    location.reload();
+                }
+                );
+            });
+        }
+    });
+
+});
+

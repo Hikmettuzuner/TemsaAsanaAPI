@@ -1,0 +1,11 @@
+﻿var settings = {
+    "url": "https://app.asana.com/api/1.0/projects/1108392209054696/tasks?opt_fields=id,created_at,modified_at,name,notes,assignee,completed,assignee_status,completed_at,due_on,due_at,projects,memberships,tags,workspace,num_hearts,parent,hearts,followers,hearted&completed_since=2016-10-07T22:54:00.867Z",
+    "method": "GET",
+    "timeout": 0,
+    "headers": {
+        "Authorization": "Bearer 0/5596c0fc9f23c5b96114af7191af6e57"
+    },
+};
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});

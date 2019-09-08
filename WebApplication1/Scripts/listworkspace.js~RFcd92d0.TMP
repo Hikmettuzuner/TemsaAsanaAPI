@@ -1,0 +1,67 @@
+﻿$(document).ready(function () {
+    var settings = {
+        "url": "https://app.asana.com/api/1.0/workspaces",
+        "method": "GET",
+        "timeout": 0,
+        "headers": {
+            "Authorization": "Bearer 0/c01a52f185cc2e2ce4414381065ab372"
+        },
+    };
+    $.ajax(settings).done(function (response) {
+        document.getElementById("demo").value = (response.data[0].id);
+        document.getElementById("as").value = (response.data[0].name);
+    });
+    /////////////////////////////////////////////////
+    $("#btn").click(function () {
+        $("#projectname").val
+            (
+            $.trim($("#projectname").val())
+            )
+        $("#projectmission").val
+            (
+            $.trim($("#projectmission").val())
+            )
+        var isim = $("#projectname").val();
+        var aciklama = $("#projectmission").val();
+
+        if (isim == '' || aciklama == '') {
+            swal("Oops", "Lütfen Boş Kutuları Doldurunuz!", "error")
+        } else {
+            swal("Tebrikler", "((" + isim + "))" + "Adlı Kaydınız Başarılı!", "success")
+            var settings = {
+                "url": "https://app.asana.com/api/1.0/workspaces/1108392209054696/projects",
+                "method": "POST",
+                "timeout": 0,
+                "headers": {
+                    "Authorization": "Bearer 0/c01a52f185cc2e2ce4414381065ab372"
+                },
+                "data": {
+                    "name": isim,
+                    "notes": aciklama
+                }
+            };
+            $.ajax(settings).done(function (response) {
+
+                console.log(response);
+                location.reload();
+            });
+        }
+    });
+
+
+
+
+});
+
+
+
+
+
+
+
+
+
+
+//Hikmet Temsa
+//
+//0 / 5596c0fc9f23c5b96114af7191af6e57 sistemde çalışan

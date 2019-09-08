@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AsanaModelStoreContainer" CdmEntityContainer="AsanaEntities">
+    <EntitySetMapping Name="Personel">
+      <EntityTypeMapping TypeName="AsanaModel.Personel">
+        <MappingFragment StoreEntitySet="Personel">
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="AsanaId" ColumnName="AsanaId" />
+          <ScalarProperty Name="PersoEmail" ColumnName="PersoEmail" />
+          <ScalarProperty Name="NameSurname" ColumnName="NameSurname" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

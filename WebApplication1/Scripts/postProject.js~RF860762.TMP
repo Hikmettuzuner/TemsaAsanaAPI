@@ -1,0 +1,26 @@
+﻿$(function () {
+    $("#btn").click(function () {
+       
+        
+        alert(aciklama);
+        var settings = {
+            "url": "https://app.asana.com/api/1.0/workspaces/1108392209054696/projects",
+            "method": "POST",
+            "timeout": 0,
+            "headers": {
+                "Authorization": "Bearer 0/5596c0fc9f23c5b96114af7191af6e57"
+            },
+            var isim = $("#projectname").val();
+            "data": {
+                
+                "name": isim,
+                var aciklama = $("#projectmission").val();
+                "notes": aciklama
+            }
+        };
+
+        $.ajax(settings).done(function (response) {
+
+        });
+    });
+});

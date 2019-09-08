@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<div class="container">
+    <h2></h2>
+    <p></p>
+    <form>
+        <div class="form-group">
+            <label for="usr">ID</label>
+            <input type="text" class="form-control" id="demo">
+        </div>
+        <div class="form-group">
+            <label for="usr">Takım Adı</label>
+            <input type="text" class="form-control" id="as">
+        </div>
+    </form>
+</div>
+    @*<div id="demo">
+        </div>*@

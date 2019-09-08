@@ -1,0 +1,103 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<div class="row">
+    <div class="container">
+        <h2></h2>
+        <p></p>
+        <form>
+            <div class="form-group">
+                <label class="text-danger font-weight-bold">ID</label>
+                <input disabled="disabled" type="text" class="form-control" id="demo">
+            </div>
+            <div class="form-group">
+                <label class="text-danger font-weight-bold">Takım Adı</label>
+                <input disabled="disabled" type="text" class="form-control" id="as">
+            </div>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="form-group">
+                    <label class="text-danger font-weight-bold">Proje Adını Giriniz</label>
+                    <input type="text" class="form-control" required="required">
+                </div>
+                <div class="form-group">
+                    <label class="text-danger font-weight-bold">Proje Tanımını Giriniz</label>
+                    <input type="text" class="form-control" required="required">
+                </div>
+                <button type="submit" class="btn btn-primary">Gönder</button>
+                <button type="button" id="listele" class="btn btn-success">Listele</button>
+            </div>
+        </div>
+        <div class="card mt-3">
+            <div class="card-header">Asana Proje Listesi</div>
+            <div class="list-group">
+                <ul id="goster" class="text-success font-weight-bold mt-2"></ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="form-group">
+                    <label class="text-danger font-weight-bold">Görev Giriniz</label>
+                    <input type="text" class="form-control" required="required">
+                </div>
+                <div class="form-group">
+                    <label class="text-danger font-weight-bold">Görev Tanımını Giriniz</label>
+                    <input type="text" class="form-control" required="required">
+                </div>
+                <button type="submit" class="btn btn-primary">Gönder</button>
+                <button type="submit" class="btn btn-success">Listele</button>
+            </div>
+        </div>
+        <div class="card mt-3">
+            <div class="card-header">Asana Görev Listesi</div>
+            <div class="list-group">
+                <ul id="goster-gorev" class="text-success font-weight-bold mt-2"></ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row mt-3">
+    <div class="container">
+    <div class="card ">
+        <h5 class="card-header card-text. danger>Asana Kullanıcı Listesi</h5>
+        <div class="card-body">
+            
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+           
+        </div>
+    </div>
+        </div>
+</div>
+
+
+
+
+
+
+@*<div id="demo">
+    </div>*@
+@*<p id="demo"></p>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myText");
+  var defaultVal = x.defaultValue;
+  var currentVal = x.value;
+
+  if (defaultVal == currentVal) {
+    document.getElementById("demo").innerHTML = "Default value and current value is the same: "
+    + x.defaultValue + " and " + x.value
+    + "<br>Change the value of the text field to see the difference!";
+  } else {
+    document.getElementById("demo").innerHTML = "The default value was: " + defaultVal
+    + "<br>The new, current value is: " + currentVal;
+  }
+}
+</script>*@

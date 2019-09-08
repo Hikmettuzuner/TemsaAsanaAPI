@@ -1,0 +1,19 @@
+﻿var settings = {
+    "url": "https://app.asana.com/api/1.0/projects?opt_fields=created_at,modified_at,owner,due_date,current_status,public,name,notes,archived,workspace,color,members,followers",
+    "method": "GET",
+    "timeout": 0,
+    "headers": {
+        "Authorization": "Bearer 0/5596c0fc9f23c5b96114af7191af6e57"
+    },
+};
+$.ajax(settings).done(function (response) {
+    console.log("Ajax işlemi bitti!");
+    $("#listele").click(function () {
+        console.log("Tıklama!");
+        for (var i = 0; i < response.data.length; i++) {
+            $("goster").
+                append($("<li>" + response.data[i].name + "</li>"))
+        }
+    })
+});
+

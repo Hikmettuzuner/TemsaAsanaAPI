@@ -1,0 +1,103 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<div class="row">
+    <div class="container">
+        <h2></h2>
+        <p></p>
+        <form id="form">
+            <div class="form-group">
+                <label class="text-danger font-weight-bold">WorkSpace ID</label>
+                <input disabled="disabled" type="text" class="form-control" id="demo">
+            </div>
+            <div class="form-group">
+                <label class="text-danger font-weight-bold">Takım Adı</label>
+                <input disabled="disabled" type="text" class="form-control" id="as">
+            </div>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">         
+                <form id="form">
+                    <div class="form-group">
+                        <label class="text-danger font-weight-bold">Proje Adını Giriniz</label>
+                        <input type="text" id="projectname" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="text-danger font-weight-bold">Proje Tanımını Giriniz</label>
+                        <input type="text" id="projectmission" class="form-control">
+                    </div>
+                    <button type="button" id="btn" class="btn btn-primary">Gönder</button>
+                    <button type="button" id="listele_btn" class="btn btn-success">Listele</button>
+                    <button type="button" id="listele_btn" class="btn btn-success">Listele</button>
+                </form>
+            </div>
+        </div>
+        <div class="card mt-3">
+            <div class="card-header">| Asana Proje Listesi |</div>
+            <div class="list-group">
+                <ul id="list_project" class="text-success font-weight-bold mt-2"></ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <form id="form">
+                    <div class="form-group">
+                        <label class="text-danger font-weight-bold">Görev Giriniz</label>
+                        <input type="text" id="taskname" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="text-danger font-weight-bold">Görev Tanımını Giriniz</label>
+                        <input type="text" id="taskmission" class="form-control" required >
+                    </div>
+                    <button type="button"  id="olustur_btn" class="btn btn-primary">Oluştur</button>
+                    <button type="button" id="listele_task_btn" class="btn btn-success" >Görüntüle</button>
+                </form>
+            </div>
+        </div>
+        <div class="card mt-3">
+            <div class="card-header">| Asana Görev Listesi |</div>
+            <div class="list-group">
+                <ul id="list_gorev" class="text-success font-weight-bold mt-2"></ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row mt-3">
+    <div class="container">
+        <div class="card ">
+            <div class="card-body">
+                <label class="text-danger font-weight-bold">Uygulama Tamamlama Formu</label>
+                <p class="card-text" id="goster-kullanici"></p>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*<div id="demo">
+    </div>*@
+@*<p id="demo"></p>
+
+    <script>
+    function myFunction() {
+      var x = document.getElementById("myText");
+      var defaultVal = x.defaultValue;
+      var currentVal = x.value;
+
+      if (defaultVal == currentVal) {
+        document.getElementById("demo").innerHTML = "Default value and current value is the same: "
+        + x.defaultValue + " and " + x.value
+        + "<br>Change the value of the text field to see the difference!";
+      } else {
+        document.getElementById("demo").innerHTML = "The default value was: " + defaultVal
+        + "<br>The new, current value is: " + currentVal;
+      }
+    }
+    </script>*@

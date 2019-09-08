@@ -1,0 +1,25 @@
+﻿var settings = {
+    "url": "https://app.asana.com/api/1.0/projects?opt_fields=created_at,modified_at,owner,due_date,current_status,public,name,notes,archived,workspace,color,members,followers",
+    "method": "GET",
+    "timeout": 0,
+    "headers": {
+        "Authorization": "Bearer 0/5596c0fc9f23c5b96114af7191af6e57"
+    },
+};
+$.ajax(settings).done(function (response) {
+    $("#ekle").on("click", function () {
+
+        $("#proje-liste").empty(); //Listeyi boşalt
+
+for (var i = 0; i < response.data.length; i++) {
+    console.log(response.data[i].name)
+    console.log(response.data[i].notes)
+        }
+    })
+});
+    //response.data.foreach(function (data) {
+    //    console.log(data.archived); // direk yazdırılır.
+    //    console.log(data.color); // direk yazdırılır.  
+    //});
+    //var listeler = document.querySelectorAll("li");
+    //console.log(response);

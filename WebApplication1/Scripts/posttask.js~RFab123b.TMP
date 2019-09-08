@@ -1,0 +1,38 @@
+﻿$(document).ready(function () {
+    $("#taskname").keypress(function (evt) {
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        if (((charCode <= 93 && charCode >= 65) || (charCode <= 122 && charCode >= 97) || charCode == 8) || charCode == 350 || charCode == 351 || charCode == 304 || charCode == 286 || charCode == 287 || charCode == 231 || charCode == 199 || charCode == 305 || charCode == 214 || charCode == 246 || charCode == 220 || charCode == 252) {
+            return true;
+        } else {
+            swal("Hatalı Giriş!", "Lütfen Harf Değerleri Giriniz !", "info");
+           
+        }   
+        return false;
+    });
+});
+$("#olustur_btn").click(function () {
+    var taskisim = $("#taskname").val();
+    var taskaciklama = $("#taskmission").val();
+    if (taskisim == '' || taskaciklama == '') {
+        swal("Oops", "Lütfen Boş Kutuları Doldurunuz!", "error")
+    } else {
+        swal("Tebrikler", "((" + taskisim + "))" + "Adlı Kaydınız Başarılı!", "success")
+        var settings = {
+            "url": "https://app.asana.com/api/1.0/workspaces/1108392209054696/tasks",
+            "method": "POST",
+            "timeout": 0,
+            "headers": {
+                "Authorization": "Bearer 0/5596c0fc9f23c5b96114af7191af6e57"
+            },
+            "data": {
+                "name": taskisim,
+                "notes": taskaciklama
+            }
+        };
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+            location.reload();
+        });
+    }
+});
+

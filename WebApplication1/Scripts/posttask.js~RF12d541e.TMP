@@ -1,0 +1,30 @@
+﻿$(document).ready(function () {
+    $("#btn").click(function () {
+        var taskisim = $("#taskname").val();
+        var taskaciklama = $("#taskmission").val();
+        if (taskisim == '' || taskaciklama == '') {
+            alert("Lütfen Boş Alanları Doldurunuz");
+        } else {
+            alert(" '' " + isim + " '' " + " Adlı Projeniz Kaydedildi !");
+            var settings = {
+                "url": "https://app.asana.com/api/1.0/workspaces/1108392209054696/tasks",
+                "method": "POST",
+                "timeout": 0,
+                "headers": {
+                    "Authorization": "Bearer 0/5596c0fc9f23c5b96114af7191af6e57"
+                },
+                "data": {
+                    "name": taskisim,
+                    "notes": taskaciklama
+                }
+            };
+
+            $.ajax(settings).done(function (response) {
+                console.log(response);
+                location.reload();
+            });
+        }
+    });
+});
+
+

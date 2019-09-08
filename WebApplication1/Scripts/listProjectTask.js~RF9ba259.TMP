@@ -1,0 +1,43 @@
+﻿$(document).ready(function () {
+    var settings = {
+        "url": "https://app.asana.com/api/1.0/projects?opt_fields=created_at,modified_at,owner,due_date,current_status,public,name,notes,archived,workspace,color,members,followers",
+        "method": "GET",
+        "timeout": 0,
+        "headers": {
+            "Authorization": "Bearer 0/5596c0fc9f23c5b96114af7191af6e57"
+        },
+    };
+    $.ajax(settings).done(function (response) {
+        for (var i = 0; i < response.data.length; i++) {
+            $("#selectproject").
+                append($("<option>" + "Proje ID = " + response.data[i].id + "  " + " " + "Proje Adı = " + response.data[i].name + "</option>"));
+        }
+
+        var selectElem = document.getElementById('selectproject');
+        selectElem.addEventListener('change', function () {
+            form_kontrol();
+            var index = selectElem.selectedIndex;
+            console.log(index);
+            swal("Listeleme Başarılı!");
+            return 0;
+
+        })
+    });
+});
+
+$(document).ready(function () {
+    $("#formmm").on("keyup change", function (event) {
+        form_kontrol();
+    });
+});
+
+var form_kontrol = function () {
+    if ($("#selectproject").val().length == 0)
+        $("#gonder").prop("disabled", true);
+    else if ($("#selecttask").val().length == 0)
+        $("#gonder").prop("disabled", true);
+    else if (!$("#kosullar").is(':checked'))
+        $("#gonder").prop("disabled", true);
+    else
+        $("#gonder").prop("disabled", false);
+}
